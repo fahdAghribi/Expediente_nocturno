@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Expediente Nocturno</string>
+    <string name="title_activity_main">Expediente Nocturno</string>
+    <string name="package_name">es.expedientenocturno.juego</string>
+    <string name="custom_url_scheme">es.expedientenocturno.juego</string>
+</resources>

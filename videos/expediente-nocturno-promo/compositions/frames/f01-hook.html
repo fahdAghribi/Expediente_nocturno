@@ -1,0 +1,57 @@
+<template>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+@font-face{font-family:"Anton";font-weight:400;font-display:block;src:url("assets/fonts/Anton-400-latin.woff2") format("woff2");}
+@font-face{font-family:"Special Elite";font-weight:400;font-display:block;src:url("assets/fonts/SpecialElite-400-latin.woff2") format("woff2");}
+@font-face{font-family:"Courier Prime";font-weight:400;font-display:block;src:url("assets/fonts/CourierPrime-400-latin.woff2") format("woff2");}
+#root{position:absolute;inset:0;overflow:hidden;color:#e9dfc6;font-family:"Courier Prime",monospace;}
+#f01-hook-ground{position:absolute;inset:0;background:#07060a;}
+#root .vwrap{position:absolute;inset:0;overflow:hidden;transform-origin:50% 45%;}
+#root .vwrap video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+#root .band{position:absolute;left:0;right:0;pointer-events:none;}
+#root .hero{position:absolute;left:70px;right:70px;font-family:"Anton",sans-serif;line-height:.98;letter-spacing:-.005em;text-shadow:0 6px 30px rgba(0,0,0,.65);}
+#root .kick{position:absolute;left:70px;right:70px;font-family:"Special Elite",monospace;text-transform:uppercase;letter-spacing:.14em;font-size:38px;line-height:1.3;text-shadow:0 3px 14px rgba(0,0,0,.8);}
+#root .gold{color:#f0c26a;}
+#root .red{color:#c8372b;}
+#root .cream{color:#e9dfc6;}
+#root .stamp{position:absolute;font-family:"Anton",sans-serif;color:#c8372b;border:9px solid #c8372b;padding:10px 34px 16px;line-height:1;text-transform:uppercase;letter-spacing:.02em;background:rgba(7,6,10,.35);box-shadow:0 0 0 3px rgba(200,55,43,.25) inset;}
+#root .flash{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,#ffffff 0%,#cfe0ff 45%,#7f9bd6 100%);opacity:0;mix-blend-mode:screen;}
+#root .rain{position:absolute;inset:-200px 0 0 0;}
+#root .rain i{position:absolute;top:0;width:2px;border-radius:2px;background:linear-gradient(to bottom,rgba(200,215,255,0),rgba(200,215,255,.55));transform-origin:50% 0;}
+#root .chars span{opacity:0;}
+
+</style>
+<div id="root" data-composition-id="f01-hook" data-width="1080" data-height="1920" data-duration="3.3">
+<div id="f01-hook-ground" class="clip" data-start="0" data-duration="3.3" data-track-index="0"></div>
+
+<div class="rain" id="f01-hook-rain" data-layout-allow-overflow><i style="left:554px;height:134px;opacity:0.58;transform:rotate(14deg)"></i><i style="left:646px;height:179px;opacity:0.55;transform:rotate(14deg)"></i><i style="left:44px;height:134px;opacity:0.58;transform:rotate(14deg)"></i><i style="left:481px;height:127px;opacity:0.71;transform:rotate(14deg)"></i><i style="left:446px;height:154px;opacity:0.62;transform:rotate(14deg)"></i><i style="left:140px;height:85px;opacity:0.40;transform:rotate(14deg)"></i><i style="left:417px;height:113px;opacity:0.57;transform:rotate(14deg)"></i><i style="left:100px;height:144px;opacity:0.57;transform:rotate(14deg)"></i><i style="left:444px;height:178px;opacity:0.69;transform:rotate(14deg)"></i><i style="left:857px;height:104px;opacity:0.59;transform:rotate(14deg)"></i><i style="left:247px;height:68px;opacity:0.66;transform:rotate(14deg)"></i><i style="left:1104px;height:102px;opacity:0.33;transform:rotate(14deg)"></i><i style="left:827px;height:109px;opacity:0.55;transform:rotate(14deg)"></i><i style="left:630px;height:178px;opacity:0.33;transform:rotate(14deg)"></i><i style="left:953px;height:175px;opacity:0.46;transform:rotate(14deg)"></i><i style="left:-20px;height:71px;opacity:0.71;transform:rotate(14deg)"></i><i style="left:537px;height:134px;opacity:0.40;transform:rotate(14deg)"></i><i style="left:542px;height:163px;opacity:0.30;transform:rotate(14deg)"></i><i style="left:710px;height:66px;opacity:0.49;transform:rotate(14deg)"></i><i style="left:699px;height:198px;opacity:0.49;transform:rotate(14deg)"></i><i style="left:500px;height:109px;opacity:0.28;transform:rotate(14deg)"></i><i style="left:815px;height:119px;opacity:0.67;transform:rotate(14deg)"></i><i style="left:304px;height:138px;opacity:0.44;transform:rotate(14deg)"></i><i style="left:944px;height:82px;opacity:0.32;transform:rotate(14deg)"></i><i style="left:694px;height:147px;opacity:0.32;transform:rotate(14deg)"></i><i style="left:386px;height:113px;opacity:0.77;transform:rotate(14deg)"></i><i style="left:956px;height:148px;opacity:0.48;transform:rotate(14deg)"></i><i style="left:1034px;height:142px;opacity:0.49;transform:rotate(14deg)"></i><i style="left:313px;height:132px;opacity:0.25;transform:rotate(14deg)"></i><i style="left:989px;height:102px;opacity:0.47;transform:rotate(14deg)"></i><i style="left:96px;height:71px;opacity:0.66;transform:rotate(14deg)"></i><i style="left:593px;height:132px;opacity:0.31;transform:rotate(14deg)"></i><i style="left:610px;height:147px;opacity:0.74;transform:rotate(14deg)"></i><i style="left:1084px;height:144px;opacity:0.58;transform:rotate(14deg)"></i><i style="left:626px;height:128px;opacity:0.30;transform:rotate(14deg)"></i><i style="left:719px;height:151px;opacity:0.80;transform:rotate(14deg)"></i><i style="left:788px;height:79px;opacity:0.33;transform:rotate(14deg)"></i><i style="left:713px;height:196px;opacity:0.44;transform:rotate(14deg)"></i><i style="left:1042px;height:113px;opacity:0.67;transform:rotate(14deg)"></i><i style="left:722px;height:70px;opacity:0.41;transform:rotate(14deg)"></i><i style="left:734px;height:129px;opacity:0.60;transform:rotate(14deg)"></i><i style="left:216px;height:161px;opacity:0.42;transform:rotate(14deg)"></i><i style="left:59px;height:138px;opacity:0.46;transform:rotate(14deg)"></i><i style="left:164px;height:174px;opacity:0.76;transform:rotate(14deg)"></i><i style="left:836px;height:61px;opacity:0.49;transform:rotate(14deg)"></i><i style="left:953px;height:140px;opacity:0.64;transform:rotate(14deg)"></i><i style="left:692px;height:60px;opacity:0.52;transform:rotate(14deg)"></i><i style="left:530px;height:83px;opacity:0.69;transform:rotate(14deg)"></i><i style="left:25px;height:72px;opacity:0.80;transform:rotate(14deg)"></i><i style="left:673px;height:159px;opacity:0.71;transform:rotate(14deg)"></i><i style="left:1034px;height:198px;opacity:0.28;transform:rotate(14deg)"></i><i style="left:149px;height:143px;opacity:0.47;transform:rotate(14deg)"></i><i style="left:442px;height:135px;opacity:0.28;transform:rotate(14deg)"></i><i style="left:22px;height:125px;opacity:0.40;transform:rotate(14deg)"></i><i style="left:442px;height:162px;opacity:0.48;transform:rotate(14deg)"></i><i style="left:349px;height:142px;opacity:0.45;transform:rotate(14deg)"></i><i style="left:1101px;height:102px;opacity:0.50;transform:rotate(14deg)"></i><i style="left:239px;height:156px;opacity:0.42;transform:rotate(14deg)"></i><i style="left:614px;height:150px;opacity:0.25;transform:rotate(14deg)"></i><i style="left:104px;height:83px;opacity:0.70;transform:rotate(14deg)"></i><i style="left:110px;height:174px;opacity:0.36;transform:rotate(14deg)"></i><i style="left:696px;height:176px;opacity:0.66;transform:rotate(14deg)"></i><i style="left:909px;height:74px;opacity:0.30;transform:rotate(14deg)"></i><i style="left:828px;height:90px;opacity:0.31;transform:rotate(14deg)"></i><i style="left:354px;height:74px;opacity:0.74;transform:rotate(14deg)"></i><i style="left:704px;height:161px;opacity:0.57;transform:rotate(14deg)"></i><i style="left:843px;height:159px;opacity:0.46;transform:rotate(14deg)"></i><i style="left:851px;height:92px;opacity:0.36;transform:rotate(14deg)"></i><i style="left:114px;height:148px;opacity:0.25;transform:rotate(14deg)"></i><i style="left:615px;height:195px;opacity:0.73;transform:rotate(14deg)"></i><i style="left:563px;height:183px;opacity:0.28;transform:rotate(14deg)"></i><i style="left:573px;height:168px;opacity:0.39;transform:rotate(14deg)"></i><i style="left:1110px;height:79px;opacity:0.73;transform:rotate(14deg)"></i><i style="left:507px;height:190px;opacity:0.79;transform:rotate(14deg)"></i><i style="left:409px;height:125px;opacity:0.49;transform:rotate(14deg)"></i><i style="left:67px;height:86px;opacity:0.30;transform:rotate(14deg)"></i><i style="left:54px;height:191px;opacity:0.55;transform:rotate(14deg)"></i><i style="left:624px;height:92px;opacity:0.76;transform:rotate(14deg)"></i><i style="left:41px;height:177px;opacity:0.40;transform:rotate(14deg)"></i><i style="left:24px;height:122px;opacity:0.46;transform:rotate(14deg)"></i></div>
+<div class="flash" id="f01-hook-flash"></div>
+<div class="kick gold chars" id="f01-hook-kick" style="top:520px;text-align:center;font-size:36px"><span>B</span><span>r</span><span>i</span><span>g</span><span>a</span><span>d</span><span>a</span><span>&nbsp;</span><span>d</span><span>e</span><span>&nbsp;</span><span>H</span><span>o</span><span>m</span><span>i</span><span>c</span><span>i</span><span>d</span><span>i</span><span>o</span><span>s</span><span>&nbsp;</span><span>·</span><span>&nbsp;</span><span>T</span><span>u</span><span>r</span><span>n</span><span>o</span><span>&nbsp;</span><span>d</span><span>e</span><span>&nbsp;</span><span>n</span><span>o</span><span>c</span><span>h</span><span>e</span></div>
+<div id="f01-hook-glow" style="position:absolute;left:90px;right:90px;top:560px;height:520px;background:radial-gradient(ellipse at 50% 55%,rgba(240,194,106,.38),rgba(240,194,106,0) 68%);opacity:0"></div>
+<div class="hero gold" id="f01-hook-clock" style="top:600px;text-align:center;font-size:340px">03:00</div>
+<div class="kick cream chars" id="f01-hook-line" style="top:1040px;text-align:center;font-size:46px;letter-spacing:.06em;text-transform:none"><span>L</span><span>a</span><span>&nbsp;</span><span>c</span><span>o</span><span>m</span><span>i</span><span>s</span><span>a</span><span>r</span><span>í</span><span>a</span><span>&nbsp;</span><span>e</span><span>s</span><span>t</span><span>á</span><span>&nbsp;</span><span>v</span><span>a</span><span>c</span><span>í</span><span>a</span><span>.</span></div>
+
+</div>
+<script>
+(function(){
+const tl = gsap.timeline({ paused: true });
+const Q = s => document.querySelectorAll('[data-composition-id="f01-hook"] ' + s);
+const type = (sel, at, step) => { Q(sel + ' span').forEach((el, i) => tl.fromTo(el, {opacity:0}, {opacity:1, duration:0.01}, at + i*step)); };
+const slam = (sel, at, from) => tl.fromTo(sel, {opacity:0, scale: from||1.35, filter:'blur(10px)'}, {opacity:1, scale:1, filter:'blur(0px)', duration:0.42, ease:'expo.out'}, at);
+const rise = (sel, at) => tl.fromTo(sel, {opacity:0, y:40}, {opacity:1, y:0, duration:0.5, ease:'power3.out'}, at);
+const flash = (sel, at, peak) => { tl.fromTo(sel, {opacity:0}, {opacity: peak||0.95, duration:0.05, ease:'none'}, at); tl.to(sel, {opacity:0, duration:0.55, ease:'power2.out'}, at+0.07); };
+const push = (sel, d, a, b) => tl.fromTo(sel, {scale:a||1.0}, {scale:b||1.08, duration:d, ease:'none'}, 0);
+const fall = (sel, d) => { Q(sel + ' i').forEach((el, i) => { const sp = 1800 + (i*137 % 900); tl.fromTo(el, {y: -300 - (i*211 % 1700)}, {y: -300 - (i*211 % 1700) + sp*d, duration:d, ease:'none'}, 0); }); };
+
+fall('#f01-hook-rain', 3.3);
+tl.fromTo('#f01-hook-rain', {opacity:0}, {opacity:.8, duration:.6}, 0.05);
+flash('#f01-hook-flash', 0.06, 1);
+type('#f01-hook-kick', 0.42, 0.034);
+tl.fromTo('#f01-hook-glow', {opacity:0}, {opacity:1, duration:.6, ease:'power2.out'}, 1.72);
+slam('#f01-hook-clock', 1.72, 1.5);
+type('#f01-hook-line', 2.12, 0.042);
+
+window.__timelines["f01-hook"] = tl;
+})();
+</script>
+</template>

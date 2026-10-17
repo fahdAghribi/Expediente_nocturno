@@ -1,0 +1,56 @@
+<template>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+@font-face{font-family:"Anton";font-weight:400;font-display:block;src:url("assets/fonts/Anton-400-latin.woff2") format("woff2");}
+@font-face{font-family:"Special Elite";font-weight:400;font-display:block;src:url("assets/fonts/SpecialElite-400-latin.woff2") format("woff2");}
+@font-face{font-family:"Courier Prime";font-weight:400;font-display:block;src:url("assets/fonts/CourierPrime-400-latin.woff2") format("woff2");}
+#root{position:absolute;inset:0;overflow:hidden;color:#e9dfc6;font-family:"Courier Prime",monospace;}
+#f03-lluvia-ground{position:absolute;inset:0;background:#07060a;}
+#root .vwrap{position:absolute;inset:0;overflow:hidden;transform-origin:50% 45%;}
+#root .vwrap video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+#root .band{position:absolute;left:0;right:0;pointer-events:none;}
+#root .hero{position:absolute;left:70px;right:70px;font-family:"Anton",sans-serif;line-height:.98;letter-spacing:-.005em;text-shadow:0 6px 30px rgba(0,0,0,.65);}
+#root .kick{position:absolute;left:70px;right:70px;font-family:"Special Elite",monospace;text-transform:uppercase;letter-spacing:.14em;font-size:38px;line-height:1.3;text-shadow:0 3px 14px rgba(0,0,0,.8);}
+#root .gold{color:#f0c26a;}
+#root .red{color:#c8372b;}
+#root .cream{color:#e9dfc6;}
+#root .stamp{position:absolute;font-family:"Anton",sans-serif;color:#c8372b;border:9px solid #c8372b;padding:10px 34px 16px;line-height:1;text-transform:uppercase;letter-spacing:.02em;background:rgba(7,6,10,.35);box-shadow:0 0 0 3px rgba(200,55,43,.25) inset;}
+#root .flash{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,#ffffff 0%,#cfe0ff 45%,#7f9bd6 100%);opacity:0;mix-blend-mode:screen;}
+#root .rain{position:absolute;inset:-200px 0 0 0;}
+#root .rain i{position:absolute;top:0;width:2px;border-radius:2px;background:linear-gradient(to bottom,rgba(200,215,255,0),rgba(200,215,255,.55));transform-origin:50% 0;}
+#root .chars span{opacity:0;}
+
+</style>
+<div id="root" data-composition-id="f03-lluvia" data-width="1080" data-height="1920" data-duration="3.7">
+<div id="f03-lluvia-ground" class="clip" data-start="0" data-duration="3.7" data-track-index="0"></div>
+
+<div class="vwrap" id="f03-lluvia-vw1"><video id="f03-lluvia-v1" class="clip" src="assets/clips/t02-lluvia.mp4" muted playsinline data-start="0" data-duration="3.7" data-media-start="1.15" data-track-index="0"></video></div>
+<div class="rain" id="f03-lluvia-rain" data-layout-allow-overflow><i style="left:59px;height:70px;opacity:0.60;transform:rotate(14deg)"></i><i style="left:310px;height:105px;opacity:0.37;transform:rotate(14deg)"></i><i style="left:554px;height:193px;opacity:0.70;transform:rotate(14deg)"></i><i style="left:-39px;height:159px;opacity:0.36;transform:rotate(14deg)"></i><i style="left:52px;height:198px;opacity:0.71;transform:rotate(14deg)"></i><i style="left:507px;height:164px;opacity:0.28;transform:rotate(14deg)"></i><i style="left:484px;height:152px;opacity:0.79;transform:rotate(14deg)"></i><i style="left:201px;height:178px;opacity:0.38;transform:rotate(14deg)"></i><i style="left:175px;height:170px;opacity:0.34;transform:rotate(14deg)"></i><i style="left:794px;height:112px;opacity:0.53;transform:rotate(14deg)"></i><i style="left:1066px;height:167px;opacity:0.74;transform:rotate(14deg)"></i><i style="left:1027px;height:150px;opacity:0.70;transform:rotate(14deg)"></i><i style="left:786px;height:90px;opacity:0.42;transform:rotate(14deg)"></i><i style="left:560px;height:185px;opacity:0.77;transform:rotate(14deg)"></i><i style="left:906px;height:150px;opacity:0.43;transform:rotate(14deg)"></i><i style="left:1021px;height:89px;opacity:0.47;transform:rotate(14deg)"></i><i style="left:897px;height:83px;opacity:0.62;transform:rotate(14deg)"></i><i style="left:1008px;height:169px;opacity:0.25;transform:rotate(14deg)"></i><i style="left:637px;height:134px;opacity:0.66;transform:rotate(14deg)"></i><i style="left:377px;height:101px;opacity:0.28;transform:rotate(14deg)"></i><i style="left:-37px;height:88px;opacity:0.61;transform:rotate(14deg)"></i><i style="left:51px;height:141px;opacity:0.77;transform:rotate(14deg)"></i><i style="left:770px;height:86px;opacity:0.35;transform:rotate(14deg)"></i><i style="left:814px;height:137px;opacity:0.42;transform:rotate(14deg)"></i><i style="left:32px;height:176px;opacity:0.65;transform:rotate(14deg)"></i><i style="left:940px;height:159px;opacity:0.26;transform:rotate(14deg)"></i><i style="left:146px;height:153px;opacity:0.60;transform:rotate(14deg)"></i><i style="left:208px;height:118px;opacity:0.38;transform:rotate(14deg)"></i><i style="left:229px;height:138px;opacity:0.80;transform:rotate(14deg)"></i><i style="left:-23px;height:159px;opacity:0.52;transform:rotate(14deg)"></i><i style="left:82px;height:195px;opacity:0.57;transform:rotate(14deg)"></i><i style="left:752px;height:197px;opacity:0.69;transform:rotate(14deg)"></i><i style="left:946px;height:86px;opacity:0.28;transform:rotate(14deg)"></i><i style="left:875px;height:147px;opacity:0.57;transform:rotate(14deg)"></i><i style="left:778px;height:159px;opacity:0.58;transform:rotate(14deg)"></i><i style="left:651px;height:91px;opacity:0.66;transform:rotate(14deg)"></i><i style="left:193px;height:196px;opacity:0.65;transform:rotate(14deg)"></i><i style="left:55px;height:80px;opacity:0.76;transform:rotate(14deg)"></i><i style="left:136px;height:122px;opacity:0.28;transform:rotate(14deg)"></i><i style="left:267px;height:62px;opacity:0.71;transform:rotate(14deg)"></i><i style="left:600px;height:96px;opacity:0.57;transform:rotate(14deg)"></i><i style="left:1026px;height:81px;opacity:0.38;transform:rotate(14deg)"></i><i style="left:580px;height:71px;opacity:0.52;transform:rotate(14deg)"></i><i style="left:532px;height:144px;opacity:0.50;transform:rotate(14deg)"></i><i style="left:-29px;height:76px;opacity:0.60;transform:rotate(14deg)"></i><i style="left:436px;height:129px;opacity:0.52;transform:rotate(14deg)"></i><i style="left:89px;height:175px;opacity:0.75;transform:rotate(14deg)"></i><i style="left:240px;height:170px;opacity:0.55;transform:rotate(14deg)"></i><i style="left:378px;height:95px;opacity:0.50;transform:rotate(14deg)"></i><i style="left:496px;height:135px;opacity:0.35;transform:rotate(14deg)"></i><i style="left:94px;height:81px;opacity:0.70;transform:rotate(14deg)"></i><i style="left:299px;height:161px;opacity:0.68;transform:rotate(14deg)"></i><i style="left:856px;height:78px;opacity:0.60;transform:rotate(14deg)"></i><i style="left:939px;height:153px;opacity:0.79;transform:rotate(14deg)"></i><i style="left:85px;height:161px;opacity:0.34;transform:rotate(14deg)"></i></div>
+<div class="flash" id="f03-lluvia-flash"></div>
+<div class="band" style="top:0;height:900px;background:linear-gradient(to bottom,rgba(7,6,10,.9),rgba(7,6,10,.75) 60%,rgba(7,6,10,0))"></div>
+<div class="hero cream" id="f03-lluvia-l1" style="top:270px;font-size:140px">Fuera, llueve.</div>
+<div class="hero cream" id="f03-lluvia-l2" style="top:440px;font-size:150px">Dentro, alguien <span class="gold">miente.</span></div>
+
+</div>
+<script>
+(function(){
+const tl = gsap.timeline({ paused: true });
+const Q = s => document.querySelectorAll('[data-composition-id="f03-lluvia"] ' + s);
+const type = (sel, at, step) => { Q(sel + ' span').forEach((el, i) => tl.fromTo(el, {opacity:0}, {opacity:1, duration:0.01}, at + i*step)); };
+const slam = (sel, at, from) => tl.fromTo(sel, {opacity:0, scale: from||1.35, filter:'blur(10px)'}, {opacity:1, scale:1, filter:'blur(0px)', duration:0.42, ease:'expo.out'}, at);
+const rise = (sel, at) => tl.fromTo(sel, {opacity:0, y:40}, {opacity:1, y:0, duration:0.5, ease:'power3.out'}, at);
+const flash = (sel, at, peak) => { tl.fromTo(sel, {opacity:0}, {opacity: peak||0.95, duration:0.05, ease:'none'}, at); tl.to(sel, {opacity:0, duration:0.55, ease:'power2.out'}, at+0.07); };
+const push = (sel, d, a, b) => tl.fromTo(sel, {scale:a||1.0}, {scale:b||1.08, duration:d, ease:'none'}, 0);
+const fall = (sel, d) => { Q(sel + ' i').forEach((el, i) => { const sp = 1800 + (i*137 % 900); tl.fromTo(el, {y: -300 - (i*211 % 1700)}, {y: -300 - (i*211 % 1700) + sp*d, duration:d, ease:'none'}, 0); }); };
+
+push('#f03-lluvia-vw1', 3.7, 1.02, 1.1);
+fall('#f03-lluvia-rain', 3.7);
+tl.fromTo('#f03-lluvia-rain', {opacity:.35}, {opacity:.35, duration:3.7}, 0);
+rise('#f03-lluvia-l1', 0.12);
+flash('#f03-lluvia-flash', 1.25, .7);
+slam('#f03-lluvia-l2', 1.6, 1.3);
+
+window.__timelines["f03-lluvia"] = tl;
+})();
+</script>
+</template>

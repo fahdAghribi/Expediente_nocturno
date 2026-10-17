@@ -1,0 +1,29 @@
+# Dependencias y compilados
+node_modules/
+**/build/
+.gradle/
+.expo/
+*.apk
+*.aab
+app/android/local.properties
+
+# Clave de firma de Android: NUNCA al repositorio
+app/signing/
+*.jks
+*.keystore
+keystore.properties
+
+# Instaladores (se distribuyen aparte)
+entregables/
+
+# Vídeo promocional: cachés, capturas de origen y renders de HyperFrames
+videos/**/.hyperframes/
+videos/**/.thumbnails/
+videos/**/.waveform-cache/
+videos/**/.media/
+videos/**/capture/
+videos/**/renders/
+
+# Sistema y editores
+.DS_Store
+.claude/settings.local.json

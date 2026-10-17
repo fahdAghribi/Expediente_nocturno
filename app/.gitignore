@@ -1,0 +1,7 @@
+node_modules/
+signing/
+android/app/build/
+android/build/
+android/.gradle/
+ios/App/build/
+.DS_Store

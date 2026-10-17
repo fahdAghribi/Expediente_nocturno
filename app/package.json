@@ -1,0 +1,25 @@
+{
+  "name": "expediente-nocturno",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Expediente Nocturno: juego de detectives en Barcelona, 1984",
+  "scripts": {
+    "sync": "cap sync",
+    "assets": "capacitor-assets generate --iconBackgroundColor '#07060a' --iconBackgroundColorDark '#07060a' --splashBackgroundColor '#07060a' --splashBackgroundColorDark '#07060a'",
+    "android:apk": "cap sync android && cd android && ./gradlew assembleRelease",
+    "android:aab": "cap sync android && cd android && ./gradlew bundleRelease"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.5.3",
+    "@capacitor/app": "^8.1.2",
+    "@capacitor/core": "^8.5.3",
+    "@capacitor/haptics": "^8.0.2",
+    "@capacitor/ios": "^8.5.3",
+    "@capacitor/splash-screen": "^8.0.2",
+    "three": "^0.128.0"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^8.5.3"
+  }
+}

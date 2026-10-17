@@ -1,0 +1,32 @@
+{
+  "appId": "es.expedientenocturno.juego",
+  "appName": "Expediente Nocturno",
+  "webDir": "www",
+  "backgroundColor": "#07060a",
+  "loggingBehavior": "none",
+  "android": {
+    "backgroundColor": "#07060a",
+    "allowMixedContent": false,
+    "webContentsDebuggingEnabled": false
+  },
+  "ios": {
+    "backgroundColor": "#07060a",
+    "contentInset": "never",
+    "scrollEnabled": false
+  },
+  "plugins": {
+    "SystemBars": {
+      "insetsHandling": "native",
+      "initialViewportFitValueHint": "cover",
+      "style": "DARK"
+    },
+    "SplashScreen": {
+      "launchShowDuration": 1200,
+      "launchAutoHide": true,
+      "launchFadeOutDuration": 400,
+      "backgroundColor": "#07060a",
+      "showSpinner": false,
+      "androidScaleType": "CENTER_CROP"
+    }
+  }
+}

@@ -1,0 +1,67 @@
+<template>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+@font-face{font-family:"Anton";font-weight:400;font-display:block;src:url("assets/fonts/Anton-400-latin.woff2") format("woff2");}
+@font-face{font-family:"Special Elite";font-weight:400;font-display:block;src:url("assets/fonts/SpecialElite-400-latin.woff2") format("woff2");}
+@font-face{font-family:"Courier Prime";font-weight:400;font-display:block;src:url("assets/fonts/CourierPrime-400-latin.woff2") format("woff2");}
+#root{position:absolute;inset:0;overflow:hidden;color:#e9dfc6;font-family:"Courier Prime",monospace;}
+#f09-reto-ground{position:absolute;inset:0;background:#07060a;}
+#root .vwrap{position:absolute;inset:0;overflow:hidden;transform-origin:50% 45%;}
+#root .vwrap video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+#root .band{position:absolute;left:0;right:0;pointer-events:none;}
+#root .hero{position:absolute;left:70px;right:70px;font-family:"Anton",sans-serif;line-height:.98;letter-spacing:-.005em;text-shadow:0 6px 30px rgba(0,0,0,.65);}
+#root .kick{position:absolute;left:70px;right:70px;font-family:"Special Elite",monospace;text-transform:uppercase;letter-spacing:.14em;font-size:38px;line-height:1.3;text-shadow:0 3px 14px rgba(0,0,0,.8);}
+#root .gold{color:#f0c26a;}
+#root .red{color:#c8372b;}
+#root .cream{color:#e9dfc6;}
+#root .stamp{position:absolute;font-family:"Anton",sans-serif;color:#c8372b;border:9px solid #c8372b;padding:10px 34px 16px;line-height:1;text-transform:uppercase;letter-spacing:.02em;background:rgba(7,6,10,.35);box-shadow:0 0 0 3px rgba(200,55,43,.25) inset;}
+#root .flash{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,#ffffff 0%,#cfe0ff 45%,#7f9bd6 100%);opacity:0;mix-blend-mode:screen;}
+#root .rain{position:absolute;inset:-200px 0 0 0;}
+#root .rain i{position:absolute;top:0;width:2px;border-radius:2px;background:linear-gradient(to bottom,rgba(200,215,255,0),rgba(200,215,255,.55));transform-origin:50% 0;}
+#root .chars span{opacity:0;}
+
+</style>
+<div id="root" data-composition-id="f09-reto" data-width="1080" data-height="1920" data-duration="6.4">
+<div id="f09-reto-ground" class="clip" data-start="0" data-duration="6.4" data-track-index="0"></div>
+
+<div class="vwrap" id="f09-reto-vw1" style="filter:blur(3px) brightness(.32) saturate(.8)"><video id="f09-reto-v1" class="clip" src="assets/clips/t09-bilbao.mp4" muted playsinline data-start="0" data-duration="6.4" data-media-start="3.2" data-track-index="0"></video></div>
+<div class="rain" id="f09-reto-rain" data-layout-allow-overflow><i style="left:954px;height:131px;opacity:0.60;transform:rotate(14deg)"></i><i style="left:589px;height:179px;opacity:0.52;transform:rotate(14deg)"></i><i style="left:1029px;height:122px;opacity:0.28;transform:rotate(14deg)"></i><i style="left:787px;height:176px;opacity:0.43;transform:rotate(14deg)"></i><i style="left:353px;height:194px;opacity:0.47;transform:rotate(14deg)"></i><i style="left:201px;height:97px;opacity:0.64;transform:rotate(14deg)"></i><i style="left:905px;height:103px;opacity:0.40;transform:rotate(14deg)"></i><i style="left:588px;height:90px;opacity:0.46;transform:rotate(14deg)"></i><i style="left:128px;height:127px;opacity:0.42;transform:rotate(14deg)"></i><i style="left:-6px;height:179px;opacity:0.35;transform:rotate(14deg)"></i><i style="left:-14px;height:153px;opacity:0.51;transform:rotate(14deg)"></i><i style="left:538px;height:166px;opacity:0.37;transform:rotate(14deg)"></i><i style="left:798px;height:124px;opacity:0.55;transform:rotate(14deg)"></i><i style="left:161px;height:87px;opacity:0.64;transform:rotate(14deg)"></i><i style="left:590px;height:97px;opacity:0.73;transform:rotate(14deg)"></i><i style="left:792px;height:93px;opacity:0.27;transform:rotate(14deg)"></i><i style="left:226px;height:60px;opacity:0.51;transform:rotate(14deg)"></i><i style="left:166px;height:139px;opacity:0.32;transform:rotate(14deg)"></i><i style="left:416px;height:183px;opacity:0.67;transform:rotate(14deg)"></i><i style="left:412px;height:176px;opacity:0.30;transform:rotate(14deg)"></i><i style="left:186px;height:139px;opacity:0.75;transform:rotate(14deg)"></i><i style="left:1026px;height:144px;opacity:0.78;transform:rotate(14deg)"></i><i style="left:285px;height:144px;opacity:0.41;transform:rotate(14deg)"></i><i style="left:667px;height:100px;opacity:0.39;transform:rotate(14deg)"></i><i style="left:1038px;height:148px;opacity:0.40;transform:rotate(14deg)"></i><i style="left:194px;height:195px;opacity:0.45;transform:rotate(14deg)"></i><i style="left:809px;height:80px;opacity:0.46;transform:rotate(14deg)"></i><i style="left:675px;height:100px;opacity:0.70;transform:rotate(14deg)"></i><i style="left:768px;height:145px;opacity:0.74;transform:rotate(14deg)"></i><i style="left:4px;height:191px;opacity:0.40;transform:rotate(14deg)"></i><i style="left:560px;height:69px;opacity:0.76;transform:rotate(14deg)"></i><i style="left:669px;height:96px;opacity:0.57;transform:rotate(14deg)"></i><i style="left:285px;height:148px;opacity:0.55;transform:rotate(14deg)"></i><i style="left:164px;height:97px;opacity:0.72;transform:rotate(14deg)"></i><i style="left:327px;height:65px;opacity:0.79;transform:rotate(14deg)"></i><i style="left:539px;height:183px;opacity:0.69;transform:rotate(14deg)"></i><i style="left:516px;height:162px;opacity:0.34;transform:rotate(14deg)"></i><i style="left:211px;height:98px;opacity:0.78;transform:rotate(14deg)"></i><i style="left:1121px;height:86px;opacity:0.30;transform:rotate(14deg)"></i><i style="left:584px;height:128px;opacity:0.71;transform:rotate(14deg)"></i><i style="left:221px;height:127px;opacity:0.72;transform:rotate(14deg)"></i><i style="left:391px;height:90px;opacity:0.33;transform:rotate(14deg)"></i><i style="left:340px;height:158px;opacity:0.78;transform:rotate(14deg)"></i><i style="left:345px;height:173px;opacity:0.60;transform:rotate(14deg)"></i><i style="left:722px;height:183px;opacity:0.58;transform:rotate(14deg)"></i><i style="left:52px;height:75px;opacity:0.71;transform:rotate(14deg)"></i><i style="left:912px;height:188px;opacity:0.77;transform:rotate(14deg)"></i><i style="left:126px;height:160px;opacity:0.36;transform:rotate(14deg)"></i><i style="left:716px;height:96px;opacity:0.76;transform:rotate(14deg)"></i><i style="left:1067px;height:63px;opacity:0.49;transform:rotate(14deg)"></i><i style="left:-25px;height:61px;opacity:0.59;transform:rotate(14deg)"></i><i style="left:62px;height:108px;opacity:0.58;transform:rotate(14deg)"></i><i style="left:546px;height:179px;opacity:0.57;transform:rotate(14deg)"></i><i style="left:840px;height:159px;opacity:0.59;transform:rotate(14deg)"></i><i style="left:41px;height:142px;opacity:0.26;transform:rotate(14deg)"></i><i style="left:724px;height:98px;opacity:0.35;transform:rotate(14deg)"></i><i style="left:539px;height:73px;opacity:0.34;transform:rotate(14deg)"></i><i style="left:552px;height:95px;opacity:0.39;transform:rotate(14deg)"></i><i style="left:965px;height:179px;opacity:0.39;transform:rotate(14deg)"></i><i style="left:728px;height:65px;opacity:0.48;transform:rotate(14deg)"></i><i style="left:862px;height:160px;opacity:0.31;transform:rotate(14deg)"></i><i style="left:976px;height:129px;opacity:0.66;transform:rotate(14deg)"></i><i style="left:788px;height:73px;opacity:0.61;transform:rotate(14deg)"></i><i style="left:739px;height:156px;opacity:0.57;transform:rotate(14deg)"></i><i style="left:394px;height:100px;opacity:0.48;transform:rotate(14deg)"></i><i style="left:654px;height:158px;opacity:0.44;transform:rotate(14deg)"></i><i style="left:1008px;height:115px;opacity:0.79;transform:rotate(14deg)"></i><i style="left:516px;height:176px;opacity:0.71;transform:rotate(14deg)"></i><i style="left:500px;height:87px;opacity:0.74;transform:rotate(14deg)"></i><i style="left:846px;height:83px;opacity:0.61;transform:rotate(14deg)"></i></div>
+<div class="flash" id="f09-reto-flash"></div>
+<div id="f09-reto-glow" style="position:absolute;left:-80px;right:-80px;top:330px;height:900px;background:radial-gradient(ellipse at 50% 50%,rgba(240,194,106,.42),rgba(240,194,106,0) 66%);opacity:0"></div>
+<div class="hero gold" id="f09-reto-t1" style="top:470px;text-align:center;font-size:205px;letter-spacing:.01em">EXPEDIENTE</div>
+<div class="hero gold" id="f09-reto-t2" style="top:672px;text-align:center;font-size:205px;letter-spacing:.01em">NOCTURNO</div>
+<div class="kick cream chars" id="f09-reto-k" style="top:930px;text-align:center;font-size:44px"><span>3</span><span>&nbsp;</span><span>c</span><span>a</span><span>s</span><span>o</span><span>s</span><span>&nbsp;</span><span>·</span><span>&nbsp;</span><span>1</span><span>&nbsp;</span><span>n</span><span>o</span><span>c</span><span>h</span><span>e</span></div>
+<div class="hero cream" id="f09-reto-q" style="top:1100px;text-align:center;font-size:132px;line-height:1.05">¿Te atreves a resolverlos?</div>
+<div id="f09-reto-soonrule" style="position:absolute;left:340px;right:340px;top:1418px;height:3px;background:#f0c26a;opacity:0"></div>
+<div class="hero gold" id="f09-reto-soon" style="top:1445px;text-align:center;font-size:84px;letter-spacing:.04em">MUY PRONTO EN APP STORE</div>
+<div id="f09-reto-black" style="position:absolute;inset:0;background:#07060a;opacity:0"></div>
+
+</div>
+<script>
+(function(){
+const tl = gsap.timeline({ paused: true });
+const Q = s => document.querySelectorAll('[data-composition-id="f09-reto"] ' + s);
+const type = (sel, at, step) => { Q(sel + ' span').forEach((el, i) => tl.fromTo(el, {opacity:0}, {opacity:1, duration:0.01}, at + i*step)); };
+const slam = (sel, at, from) => tl.fromTo(sel, {opacity:0, scale: from||1.35, filter:'blur(10px)'}, {opacity:1, scale:1, filter:'blur(0px)', duration:0.42, ease:'expo.out'}, at);
+const rise = (sel, at) => tl.fromTo(sel, {opacity:0, y:40}, {opacity:1, y:0, duration:0.5, ease:'power3.out'}, at);
+const flash = (sel, at, peak) => { tl.fromTo(sel, {opacity:0}, {opacity: peak||0.95, duration:0.05, ease:'none'}, at); tl.to(sel, {opacity:0, duration:0.55, ease:'power2.out'}, at+0.07); };
+const push = (sel, d, a, b) => tl.fromTo(sel, {scale:a||1.0}, {scale:b||1.08, duration:d, ease:'none'}, 0);
+const fall = (sel, d) => { Q(sel + ' i').forEach((el, i) => { const sp = 1800 + (i*137 % 900); tl.fromTo(el, {y: -300 - (i*211 % 1700)}, {y: -300 - (i*211 % 1700) + sp*d, duration:d, ease:'none'}, 0); }); };
+
+tl.fromTo('#f09-reto-vw1', {scale:1.12}, {scale:1.0, duration:6.4, ease:'power1.out'}, 0);
+fall('#f09-reto-rain', 6.4);
+tl.fromTo('#f09-reto-rain', {opacity:.6}, {opacity:.6, duration:6.4}, 0);
+flash('#f09-reto-flash', 0.04, 1);
+tl.fromTo('#f09-reto-glow', {opacity:0}, {opacity:1, duration:.8, ease:'power2.out'}, 0.5);
+slam('#f09-reto-t1', 0.5, 1.6);
+slam('#f09-reto-t2', 0.62, 1.6);
+type('#f09-reto-k', 1.55, 0.05);
+slam('#f09-reto-q', 2.55, 1.25);
+tl.fromTo('#f09-reto-soonrule', {opacity:0, scaleX:0}, {opacity:1, scaleX:1, duration:.5, ease:'power3.out'}, 3.35);
+slam('#f09-reto-soon', 3.45, 1.3);
+tl.fromTo('#f09-reto-black', {opacity:0}, {opacity:1, duration:.6, ease:'power2.in'}, 5.78);
+
+window.__timelines["f09-reto"] = tl;
+})();
+</script>
+</template>

@@ -1,0 +1,52 @@
+<template>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+@font-face{font-family:"Anton";font-weight:400;font-display:block;src:url("assets/fonts/Anton-400-latin.woff2") format("woff2");}
+@font-face{font-family:"Special Elite";font-weight:400;font-display:block;src:url("assets/fonts/SpecialElite-400-latin.woff2") format("woff2");}
+@font-face{font-family:"Courier Prime";font-weight:400;font-display:block;src:url("assets/fonts/CourierPrime-400-latin.woff2") format("woff2");}
+#root{position:absolute;inset:0;overflow:hidden;color:#e9dfc6;font-family:"Courier Prime",monospace;}
+#f05-sospechosos-ground{position:absolute;inset:0;background:#07060a;}
+#root .vwrap{position:absolute;inset:0;overflow:hidden;transform-origin:50% 45%;}
+#root .vwrap video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+#root .band{position:absolute;left:0;right:0;pointer-events:none;}
+#root .hero{position:absolute;left:70px;right:70px;font-family:"Anton",sans-serif;line-height:.98;letter-spacing:-.005em;text-shadow:0 6px 30px rgba(0,0,0,.65);}
+#root .kick{position:absolute;left:70px;right:70px;font-family:"Special Elite",monospace;text-transform:uppercase;letter-spacing:.14em;font-size:38px;line-height:1.3;text-shadow:0 3px 14px rgba(0,0,0,.8);}
+#root .gold{color:#f0c26a;}
+#root .red{color:#c8372b;}
+#root .cream{color:#e9dfc6;}
+#root .stamp{position:absolute;font-family:"Anton",sans-serif;color:#c8372b;border:9px solid #c8372b;padding:10px 34px 16px;line-height:1;text-transform:uppercase;letter-spacing:.02em;background:rgba(7,6,10,.35);box-shadow:0 0 0 3px rgba(200,55,43,.25) inset;}
+#root .flash{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,#ffffff 0%,#cfe0ff 45%,#7f9bd6 100%);opacity:0;mix-blend-mode:screen;}
+#root .rain{position:absolute;inset:-200px 0 0 0;}
+#root .rain i{position:absolute;top:0;width:2px;border-radius:2px;background:linear-gradient(to bottom,rgba(200,215,255,0),rgba(200,215,255,.55));transform-origin:50% 0;}
+#root .chars span{opacity:0;}
+
+</style>
+<div id="root" data-composition-id="f05-sospechosos" data-width="1080" data-height="1920" data-duration="4.2">
+<div id="f05-sospechosos-ground" class="clip" data-start="0" data-duration="4.2" data-track-index="0"></div>
+
+<div class="vwrap" id="f05-sospechosos-vw1"><video id="f05-sospechosos-v1" class="clip" src="assets/clips/t05-ficha.mp4" muted playsinline data-start="0" data-duration="4.2" data-media-start="0.6" data-track-index="0"></video></div>
+<div class="band" id="f05-sospechosos-band1" style="top:1180px;height:470px;background:linear-gradient(to bottom,rgba(7,6,10,0),rgba(7,6,10,0.9) 28%,rgba(7,6,10,0.9) 72%,rgba(7,6,10,0))"></div>
+<div class="hero cream" id="f05-sospechosos-l1" style="top:1260px;font-size:136px">4 sospechosos.</div>
+<div class="stamp" id="f05-sospechosos-stamp" style="left:70px;top:1430px;font-size:118px">1 culpable</div>
+
+</div>
+<script>
+(function(){
+const tl = gsap.timeline({ paused: true });
+const Q = s => document.querySelectorAll('[data-composition-id="f05-sospechosos"] ' + s);
+const type = (sel, at, step) => { Q(sel + ' span').forEach((el, i) => tl.fromTo(el, {opacity:0}, {opacity:1, duration:0.01}, at + i*step)); };
+const slam = (sel, at, from) => tl.fromTo(sel, {opacity:0, scale: from||1.35, filter:'blur(10px)'}, {opacity:1, scale:1, filter:'blur(0px)', duration:0.42, ease:'expo.out'}, at);
+const rise = (sel, at) => tl.fromTo(sel, {opacity:0, y:40}, {opacity:1, y:0, duration:0.5, ease:'power3.out'}, at);
+const flash = (sel, at, peak) => { tl.fromTo(sel, {opacity:0}, {opacity: peak||0.95, duration:0.05, ease:'none'}, at); tl.to(sel, {opacity:0, duration:0.55, ease:'power2.out'}, at+0.07); };
+const push = (sel, d, a, b) => tl.fromTo(sel, {scale:a||1.0}, {scale:b||1.08, duration:d, ease:'none'}, 0);
+const fall = (sel, d) => { Q(sel + ' i').forEach((el, i) => { const sp = 1800 + (i*137 % 900); tl.fromTo(el, {y: -300 - (i*211 % 1700)}, {y: -300 - (i*211 % 1700) + sp*d, duration:d, ease:'none'}, 0); }); };
+
+push('#f05-sospechosos-vw1', 4.2, 1.0, 1.09);
+tl.fromTo('#f05-sospechosos-band1', {opacity:0}, {opacity:1, duration:.3}, 0.1);
+rise('#f05-sospechosos-l1', 0.2);
+tl.fromTo('#f05-sospechosos-stamp', {opacity:0, scale:1.9, rotation:-12}, {opacity:1, scale:1, rotation:-4, duration:.22, ease:'power4.in'}, 1.58);
+
+window.__timelines["f05-sospechosos"] = tl;
+})();
+</script>
+</template>

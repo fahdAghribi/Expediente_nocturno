@@ -1,0 +1,24 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="fonts.css">
+<style>html,body{margin:0;background:transparent;overflow:hidden}canvas{display:block}</style></head><body><canvas id="c"></canvas>
+<script>
+const mode=location.hash.slice(1)||"icon",S=mode.startsWith("splash")?2732:1024,c=document.getElementById("c"),x=c.getContext("2d");c.width=S;c.height=mode==="feature"?500:S;c.style.width=c.width+"px";c.style.height=c.height+"px";
+function bg(){let g=x.createRadialGradient(S*.5,S*.36,0,S*.5,S*.45,S*.75);g.addColorStop(0,"#5a3614");g.addColorStop(.35,"#22150b");g.addColorStop(1,"#07060a");x.fillStyle=g;x.fillRect(0,0,S,S);if(S>1024)return;
+  const im=x.getImageData(0,0,S,S),d=im.data;for(let i=0;i<d.length;i+=4){const n=(Math.random()-.5)*10;d[i]+=n;d[i+1]+=n;d[i+2]+=n;}x.putImageData(im,0,0);}
+function glass(k){x.save();x.translate(S/2,S/2);x.scale(k,k);x.translate(-512,-512);
+  const cx=455,cy=455,r=250;
+  x.save();x.translate(cx,cy);x.rotate(Math.PI/4);x.translate(r+20,0);
+  let g=x.createLinearGradient(0,-50,0,50);g.addColorStop(0,"#3a2412");g.addColorStop(.45,"#7a4a22");g.addColorStop(1,"#1e1209");x.fillStyle=g;x.beginPath();x.roundRect(30,-46,300,92,40);x.fill();
+  g=x.createLinearGradient(0,-40,0,40);g.addColorStop(0,"#f6dc96");g.addColorStop(.5,"#b58a3a");g.addColorStop(1,"#6a4c18");x.fillStyle=g;x.fillRect(-10,-40,60,80);x.restore();
+  x.shadowColor="rgba(0,0,0,.6)";x.shadowBlur=40;x.shadowOffsetY=16;
+  g=x.createRadialGradient(cx-80,cy-90,10,cx,cy,r);g.addColorStop(0,"rgba(255,236,190,.34)");g.addColorStop(.6,"rgba(240,194,106,.12)");g.addColorStop(1,"rgba(20,12,6,.55)");x.fillStyle=g;x.beginPath();x.arc(cx,cy,r,0,Math.PI*2);x.fill();x.shadowColor="transparent";
+  x.lineWidth=58;g=x.createLinearGradient(cx-r,cy-r,cx+r,cy+r);g.addColorStop(0,"#ffe3a0");g.addColorStop(.5,"#f0c26a");g.addColorStop(1,"#8a6020");x.strokeStyle=g;x.beginPath();x.arc(cx,cy,r,0,Math.PI*2);x.stroke();
+  x.lineWidth=6;x.strokeStyle="rgba(60,36,10,.6)";x.beginPath();x.arc(cx,cy,r-29,0,Math.PI*2);x.stroke();
+  x.fillStyle="#e9dfc6";x.font='250px "Anton"';x.textAlign="center";x.textBaseline="alphabetic";x.shadowColor="rgba(0,0,0,.5)";x.shadowBlur=20;x.fillText("EN",cx,cy+92);x.shadowColor="transparent";
+  x.save();x.translate(cx,cy+150);x.rotate(-.12);x.strokeStyle="#c0301f";x.lineWidth=10;x.strokeRect(-112,-34,224,62);x.fillStyle="#c0301f";x.font='44px "Special Elite"';x.fillText("84/117",0,12);x.restore();
+  x.save();x.beginPath();x.arc(cx,cy,r-29,0,Math.PI*2);x.clip();x.fillStyle="rgba(255,255,255,.16)";x.beginPath();x.ellipse(cx-110,cy-120,90,40,-.7,0,Math.PI*2);x.fill();x.restore();
+  x.restore();}
+function splash(){bg();x.textAlign="center";x.fillStyle="#f0c26a";x.shadowColor="rgba(240,194,106,.35)";x.shadowBlur=60;x.font='300px "Anton"';x.fillText("EXPEDIENTE",S/2,S/2-30);x.fillText("NOCTURNO",S/2,S/2+270);x.shadowColor="transparent";
+  x.fillStyle="#9a8b70";x.font='64px "Special Elite"';x.fillText("BRIGADA DE HOMICIDIOS · BARCELONA, 1984",S/2,S/2+430);}
+document.fonts.ready.then(()=>Promise.all(['300px "Anton"','40px "Special Elite"'].map(f=>document.fonts.load(f)))).then(()=>{
+  if(mode==="icon"){bg();glass(1);}else if(mode==="fg"){glass(.72);}else if(mode==="bg"){bg();}else if(mode==="feature"){bg();x.save();x.translate(-292,-262);glass(.62);x.restore();x.textAlign="left";x.fillStyle="#f0c26a";x.shadowColor="rgba(240,194,106,.3)";x.shadowBlur=30;x.font='118px "Anton"';x.fillText("EXPEDIENTE",400,215);x.fillText("NOCTURNO",400,345);x.shadowColor="transparent";x.fillStyle="#cbbd9f";x.font='27px "Special Elite"';x.fillText("Barcelona, 1984. Un crimen. Una noche.",404,410);}else splash();document.title="done";});
+</script></body></html>

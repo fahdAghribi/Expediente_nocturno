@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#07060a</color>
+    <color name="colorPrimaryDark">#07060a</color>
+    <color name="colorAccent">#f0c26a</color>
+    <color name="nightRoom">#07060a</color>
+</resources>

@@ -1,0 +1,65 @@
+<template>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+@font-face{font-family:"Anton";font-weight:400;font-display:block;src:url("assets/fonts/Anton-400-latin.woff2") format("woff2");}
+@font-face{font-family:"Special Elite";font-weight:400;font-display:block;src:url("assets/fonts/SpecialElite-400-latin.woff2") format("woff2");}
+@font-face{font-family:"Courier Prime";font-weight:400;font-display:block;src:url("assets/fonts/CourierPrime-400-latin.woff2") format("woff2");}
+#root{position:absolute;inset:0;overflow:hidden;color:#e9dfc6;font-family:"Courier Prime",monospace;}
+#f08-casos-ground{position:absolute;inset:0;background:#07060a;}
+#root .vwrap{position:absolute;inset:0;overflow:hidden;transform-origin:50% 45%;}
+#root .vwrap video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+#root .band{position:absolute;left:0;right:0;pointer-events:none;}
+#root .hero{position:absolute;left:70px;right:70px;font-family:"Anton",sans-serif;line-height:.98;letter-spacing:-.005em;text-shadow:0 6px 30px rgba(0,0,0,.65);}
+#root .kick{position:absolute;left:70px;right:70px;font-family:"Special Elite",monospace;text-transform:uppercase;letter-spacing:.14em;font-size:38px;line-height:1.3;text-shadow:0 3px 14px rgba(0,0,0,.8);}
+#root .gold{color:#f0c26a;}
+#root .red{color:#c8372b;}
+#root .cream{color:#e9dfc6;}
+#root .stamp{position:absolute;font-family:"Anton",sans-serif;color:#c8372b;border:9px solid #c8372b;padding:10px 34px 16px;line-height:1;text-transform:uppercase;letter-spacing:.02em;background:rgba(7,6,10,.35);box-shadow:0 0 0 3px rgba(200,55,43,.25) inset;}
+#root .flash{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,#ffffff 0%,#cfe0ff 45%,#7f9bd6 100%);opacity:0;mix-blend-mode:screen;}
+#root .rain{position:absolute;inset:-200px 0 0 0;}
+#root .rain i{position:absolute;top:0;width:2px;border-radius:2px;background:linear-gradient(to bottom,rgba(200,215,255,0),rgba(200,215,255,.55));transform-origin:50% 0;}
+#root .chars span{opacity:0;}
+
+</style>
+<div id="root" data-composition-id="f08-casos" data-width="1080" data-height="1920" data-duration="4.1">
+<div id="f08-casos-ground" class="clip" data-start="0" data-duration="4.1" data-track-index="0"></div>
+
+<div class="vwrap" id="f08-casos-vw1"><video id="f08-casos-v1" class="clip" src="assets/clips/t03-mirar.mp4" muted playsinline data-start="0" data-duration="1.35" data-media-start="2.0" data-track-index="0"></video></div>
+<div class="vwrap" id="f08-casos-vw2"><video id="f08-casos-v2" class="clip" src="assets/clips/t11-muntaner.mp4" muted playsinline data-start="1.35" data-duration="1.35" data-media-start="5.0" data-track-index="1"></video></div>
+<div class="vwrap" id="f08-casos-vw3"><video id="f08-casos-v3" class="clip" src="assets/clips/t10-bilbao-lluvia.mp4" muted playsinline data-start="2.7" data-duration="1.4" data-media-start="1.0" data-track-index="2"></video></div>
+<div class="flash" id="f08-casos-flash"></div>
+<div class="band" style="top:0;height:900px;background:linear-gradient(to bottom,rgba(7,6,10,.93),rgba(7,6,10,.8) 62%,rgba(7,6,10,0))"></div>
+<div class="hero gold" id="f08-casos-n1" style="top:230px;left:60px;right:auto;font-size:330px;opacity:0">1</div><div class="hero gold" id="f08-casos-n2" style="top:230px;left:60px;right:auto;font-size:330px;opacity:0">2</div><div class="hero gold" id="f08-casos-n3" style="top:230px;left:60px;right:auto;font-size:330px;opacity:0">3</div>
+<div class="kick gold" id="f08-casos-k1" style="top:300px;left:330px;font-size:40px;opacity:0">Caso 1 · Barcelona 1984</div><div class="hero cream" id="f08-casos-t1" style="top:360px;left:330px;font-size:84px;line-height:1.02;opacity:0">El anticuario de Via Laietana</div><div class="kick gold" id="f08-casos-k2" style="top:300px;left:330px;font-size:40px;opacity:0">Caso 2 · Barcelona 1985</div><div class="hero cream" id="f08-casos-t2" style="top:360px;left:330px;font-size:84px;line-height:1.02;opacity:0">El incendio de la calle Muntaner</div><div class="kick gold" id="f08-casos-k3" style="top:300px;left:330px;font-size:40px;opacity:0">Caso 3 · Bilbao 1986</div><div class="hero cream" id="f08-casos-t3" style="top:360px;left:330px;font-size:84px;line-height:1.02;opacity:0">La llamada del club de ajedrez</div>
+<div class="kick cream" id="f08-casos-of" style="top:640px;left:330px;font-size:34px;opacity:0">Tres casos. Una noche.</div>
+
+</div>
+<script>
+(function(){
+const tl = gsap.timeline({ paused: true });
+const Q = s => document.querySelectorAll('[data-composition-id="f08-casos"] ' + s);
+const type = (sel, at, step) => { Q(sel + ' span').forEach((el, i) => tl.fromTo(el, {opacity:0}, {opacity:1, duration:0.01}, at + i*step)); };
+const slam = (sel, at, from) => tl.fromTo(sel, {opacity:0, scale: from||1.35, filter:'blur(10px)'}, {opacity:1, scale:1, filter:'blur(0px)', duration:0.42, ease:'expo.out'}, at);
+const rise = (sel, at) => tl.fromTo(sel, {opacity:0, y:40}, {opacity:1, y:0, duration:0.5, ease:'power3.out'}, at);
+const flash = (sel, at, peak) => { tl.fromTo(sel, {opacity:0}, {opacity: peak||0.95, duration:0.05, ease:'none'}, at); tl.to(sel, {opacity:0, duration:0.55, ease:'power2.out'}, at+0.07); };
+const push = (sel, d, a, b) => tl.fromTo(sel, {scale:a||1.0}, {scale:b||1.08, duration:d, ease:'none'}, 0);
+const fall = (sel, d) => { Q(sel + ' i').forEach((el, i) => { const sp = 1800 + (i*137 % 900); tl.fromTo(el, {y: -300 - (i*211 % 1700)}, {y: -300 - (i*211 % 1700) + sp*d, duration:d, ease:'none'}, 0); }); };
+
+push('#f08-casos-vw1', 1.35, 1.0, 1.06);
+tl.fromTo('#f08-casos-vw2', {scale:1.0}, {scale:1.06, duration:1.35, ease:'none'}, 1.35);
+tl.fromTo('#f08-casos-vw3', {scale:1.0}, {scale:1.07, duration:1.40, ease:'none'}, 2.7);
+const T = [0, 1.35, 2.7];
+T.forEach((t, i) => {
+  const n = i+1;
+  if (i>0) flash('#f08-casos-flash', t, .6);
+  slam('#f08-casos-n'+n, t+0.02, 1.6);
+  rise('#f08-casos-k'+n, t+0.08);
+  rise('#f08-casos-t'+n, t+0.18);
+  if (i<2) { const end = T[i+1]; tl.to(['#f08-casos-n'+n,'#f08-casos-k'+n,'#f08-casos-t'+n], {opacity:0, duration:.01}, end); }
+});
+rise('#f08-casos-of', 3.2);
+
+window.__timelines["f08-casos"] = tl;
+})();
+</script>
+</template>
