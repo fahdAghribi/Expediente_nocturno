@@ -2,61 +2,185 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Política de privacidad · Expediente Nocturno</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Expediente Nocturno · Juego de detectives</title>
+<meta name="description" content="Son las tres de la madrugada. Antes del amanecer tienes que señalar a un culpable. 13 casos de la España de los 80 y 90. Sin anuncios y sin conexión.">
+<meta name="theme-color" content="#07060a">
+<meta property="og:title" content="Expediente Nocturno">
+<meta property="og:description" content="Un juego de detectives: 13 casos, una noche para encontrar al culpable.">
+<meta property="og:image" content="https://fahdaghribi.github.io/Expediente_nocturno/img/t-mesa.webp">
+<link rel="icon" href="img/icono.webp">
 <style>
-  body{margin:0;background:#07060a;color:#e9dfc6;font:17px/1.6 "Courier New",monospace}
-  main{max-width:680px;margin:0 auto;padding:40px 16px 60px}
-  h1{color:#f0c26a;font-family:Impact,"Arial Narrow",sans-serif;font-weight:400;letter-spacing:.02em;font-size:34px;line-height:1.1}
-  h2{color:#f0c26a;font-size:18px;margin-top:28px}
-  a{color:#f0c26a}
-  .dim{color:#9a8b70;font-size:14px}
-  hr{border:0;border-top:1px solid #3a3022;margin:48px 0 8px}
+  @font-face{font-family:"Anton";src:url(fonts/Anton-400-latin.woff2) format("woff2");font-display:swap}
+  @font-face{font-family:"Special Elite";src:url(fonts/SpecialElite-400-latin.woff2) format("woff2");font-display:swap}
+  @font-face{font-family:"Courier Prime";src:url(fonts/CourierPrime-400-latin.woff2) format("woff2");font-display:swap}
+  :root{--bg:#07060a;--ink:#e9dfc6;--dim:#a8997c;--lamp:#f0c26a;--blood:#b3271c;--paper:#efe3c4;--line:#2b231a;
+    --head:"Anton",Impact,"Arial Narrow",sans-serif;--type:"Special Elite","Courier New",monospace;--body:"Courier Prime","Courier New",monospace}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  a{color:var(--lamp)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  .kicker{font:13px/1.4 var(--type);letter-spacing:.3em;text-transform:uppercase;color:var(--dim)}
+  h2{font:400 clamp(36px,6vw,64px)/.95 var(--head);color:var(--lamp);margin:10px 0 18px;letter-spacing:.01em}
+  h2 b{font-weight:400;color:var(--blood)}
+  /* hero */
+  .hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;
+    background:linear-gradient(to bottom,rgba(7,6,10,.82),rgba(7,6,10,.45) 40%,rgba(7,6,10,.7) 75%,var(--bg)),url(img/fondo.webp) center 60%/cover}
+  .hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:40px;align-items:center;padding-top:60px;padding-bottom:60px}
+  .logo{width:min(520px,100%);height:auto;filter:drop-shadow(0 0 30px rgba(240,194,106,.2))}
+  .lead{font:clamp(18px,2.2vw,22px)/1.5 var(--type);color:#e3d6b6;margin:22px 0 26px;max-width:30ch}
+  .badges{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 26px;padding:0;list-style:none}
+  .badges li{font:14px/1 var(--body);border:1px solid rgba(240,194,106,.45);background:rgba(20,15,10,.6);padding:10px 14px;color:var(--paper)}
+  .stores{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .store{display:flex;flex-direction:column;justify-content:center;min-width:200px;padding:12px 18px;background:var(--lamp);color:#1a120a;text-decoration:none;font:400 22px/1 var(--head);letter-spacing:.04em}
+  .store small{font:12px/1.2 var(--body);letter-spacing:.06em;opacity:.75;margin-bottom:4px;text-transform:uppercase}
+  .store.ghost{background:transparent;color:var(--lamp);border:1px solid var(--lamp)}
+  .stamp{display:inline-block;margin-top:22px;font:400 20px/1 var(--head);color:var(--blood);border:3px solid var(--blood);padding:6px 14px 8px;transform:rotate(-5deg);letter-spacing:.06em}
+  .phone{justify-self:center;width:min(330px,80vw);border-radius:42px;background:#050403;padding:12px;box-shadow:0 0 0 2px #2c241b,0 40px 90px rgba(0,0,0,.75);transform:rotate(3deg)}
+  .phone img{border-radius:32px}
+  /* sections */
+  section{padding:90px 0}
+  .intro{text-align:center}
+  .intro p{max-width:62ch;margin:0 auto;color:#d9ccac}
+  .tablet{margin:44px auto 0;max-width:980px;border-radius:26px;background:#050403;padding:14px;box-shadow:0 0 0 2px #2c241b,0 40px 100px rgba(0,0,0,.8)}
+  .tablet img{border-radius:14px}
+  .feats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:20px}
+  .feat{border-top:2px solid var(--line);padding-top:18px}
+  .feat h3{font:400 28px/1 var(--head);color:var(--paper);margin:0 0 8px;letter-spacing:.02em}
+  .feat p{margin:0;color:#cbbf9f;font-size:16px}
+  .feat .n{font:400 46px/1 var(--head);color:var(--lamp)}
+  .shots{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px 20px 26px;margin:30px -20px 0;scrollbar-width:thin}
+  .shot{flex:0 0 min(250px,70vw);scroll-snap-align:center}
+  .shot img{border-radius:22px;box-shadow:0 0 0 2px #2c241b,0 20px 50px rgba(0,0,0,.7)}
+  .shot figcaption{font:400 22px/1.05 var(--head);color:var(--lamp);margin-top:14px}
+  .shot figcaption span{display:block;font:14px/1.4 var(--body);color:var(--dim);margin-top:4px}
+  .suspects{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:12px;margin-top:30px}
+  .suspects img{width:100%;aspect-ratio:4/5;object-fit:cover;background:#fff;padding:6px 6px 22px;box-shadow:0 14px 30px rgba(0,0,0,.6);filter:sepia(.35) contrast(1.05)}
+  .suspects img:nth-child(odd){transform:rotate(-2.5deg)}.suspects img:nth-child(even){transform:rotate(2deg) translateY(8px)}
+  .cases{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;margin-top:30px}
+  .case{background:linear-gradient(#e7d7ae,#d8c391);color:#2a1d10;padding:16px 18px 18px;position:relative;box-shadow:0 12px 26px rgba(0,0,0,.55)}
+  .case .no{font:12px/1 var(--type);letter-spacing:.14em;color:#6b5634}
+  .case h3{font:400 24px/1.02 var(--head);margin:8px 0 10px}
+  .case .where{font:13px/1.3 var(--body);color:#5a4426}
+  .case .tag{position:absolute;right:12px;top:12px;font:400 13px/1 var(--head);color:var(--blood);border:2px solid var(--blood);padding:3px 6px;transform:rotate(4deg);letter-spacing:.05em}
+  .cta{text-align:center;background:linear-gradient(rgba(7,6,10,.7),rgba(7,6,10,.92)),url(img/t-mesa.webp) center/cover}
+  .cta .stores{justify-content:center;margin-top:24px}
+  footer{border-top:1px solid var(--line);padding:30px 0 50px;font-size:14px;color:var(--dim)}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;align-items:center}
+  footer nav{display:flex;flex-wrap:wrap;gap:18px}
+  @media (max-width:860px){
+    .hero .wrap{grid-template-columns:1fr;text-align:center;padding-top:40px}
+    .lead{margin-left:auto;margin-right:auto}.badges,.stores{justify-content:center}.logo{margin:0 auto}
+    .phone{transform:none;width:min(280px,72vw)}
+    .feats{grid-template-columns:1fr}
+    .suspects{grid-template-columns:repeat(4,minmax(0,1fr))}
+    section{padding:64px 0}
+  }
 </style>
 </head>
 <body>
-<main>
-  <h1>Política de privacidad de Expediente Nocturno</h1>
-  <p class="dim">Última actualización: 20 de octubre de 2026 · <a href="#en">English below</a></p>
 
-  <p>Expediente Nocturno es un juego de detectives para Android e iPhone. Esta página explica qué hace la app con tu información. La respuesta corta es que no recoge ninguna.</p>
-
-  <h2>Datos que recogemos</h2>
-  <p>Ninguno. La app no pide registro ni cuenta, no lleva publicidad, no usa herramientas de analítica ni de seguimiento, y no envía información a ningún servidor. No compartimos datos con terceros porque no tenemos ninguno.</p>
-
-  <h2>Datos que se guardan en tu teléfono</h2>
-  <p>Para que puedas continuar la partida, la app guarda en el almacenamiento interno de tu dispositivo tu progreso (las pruebas que has examinado, tus marcas en las fichas, las deducciones y la hora del juego) y el idioma que has elegido. Estos datos no salen de tu teléfono. Se borran si eliges «Empezar de cero» o «Reiniciar el caso», o si desinstalas la app.</p>
-
-  <h2>Permisos</h2>
-  <p>La app solo usa la vibración del teléfono para dar respuesta táctil al tocar objetos. No accede a la cámara, el micrófono, la ubicación, los contactos ni las fotos. Todo el juego va incluido en la app y funciona sin conexión.</p>
-
-  <h2>Menores</h2>
-  <p>Por su contenido (crímenes violentos), el juego está pensado para mayores de 18 años. La app no recoge datos de nadie, tampoco de menores de edad.</p>
-
-  <h2>Cambios</h2>
-  <p>Si alguna versión futura cambiara algo de esto, actualizaremos esta página y la fecha de arriba antes de publicarla.</p>
-
-  <h2>Contacto</h2>
-  <p>Para cualquier pregunta sobre privacidad, escribe a <a href="mailto:expedientenocturnogame@gmail.com">expedientenocturnogame@gmail.com</a>.</p>
-
-  <hr>
-  <h1 id="en" lang="en">Expediente Nocturno privacy policy</h1>
-  <div lang="en">
-  <p class="dim">Last updated: 20 October 2026</p>
-  <p>Expediente Nocturno is a detective game for Android and iPhone. This page explains what the app does with your information. The short answer: it collects none.</p>
-  <h2>Data we collect</h2>
-  <p>None. The app has no sign-up or accounts, no ads, no analytics or tracking tools, and it does not send any information to any server. We share no data with third parties because we have none.</p>
-  <h2>Data stored on your phone</h2>
-  <p>So you can continue your game, the app stores your progress (the evidence you have examined, your marks on the suspect files, your deductions and the in-game time) and your chosen language in your device's internal storage. This data never leaves your phone. It is deleted when you choose «Start over» or «Restart the case», or when you uninstall the app.</p>
-  <h2>Permissions</h2>
-  <p>The app only uses the phone's vibration for haptic feedback when you tap objects. It does not access the camera, microphone, location, contacts or photos. The whole game is bundled in the app and works offline.</p>
-  <h2>Children</h2>
-  <p>Because of its content (violent crimes), the game is intended for adults (18+). The app collects no data from anyone, including minors.</p>
-  <h2>Changes</h2>
-  <p>If a future version ever changes any of this, we will update this page and the date above before releasing it.</p>
-  <h2>Contact</h2>
-  <p>For any privacy question, write to <a href="mailto:expedientenocturnogame@gmail.com">expedientenocturnogame@gmail.com</a>.</p>
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="kicker">Brigada de Homicidios · Turno de noche</div>
+      <h1 style="margin:14px 0 0"><img class="logo" src="img/titulo.webp" width="1400" height="697" alt="Expediente Nocturno"></h1>
+      <p class="lead">Son las tres de la madrugada. Antes del amanecer tienes que señalar a un culpable.</p>
+      <ul class="badges">
+        <li>13 casos</li><li>España, 1984–1995</li><li>Sin anuncios</li><li>Sin conexión</li><li>Español · English</li>
+      </ul>
+      <div class="stores">
+        <span class="store"><small>Muy pronto en</small>Google Play</span>
+        <span class="store ghost"><small>Muy pronto en</small>App Store</span>
+      </div>
+      <div class="stamp">CONFIDENCIAL</div>
+    </div>
+    <div class="phone"><img src="img/m-02-mesa.webp" width="540" height="960" alt="La mesa del inspector con las pruebas del caso"></div>
   </div>
+</header>
+
+<main>
+<section class="intro">
+  <div class="wrap">
+    <div class="kicker">Un juego de detectives para el móvil</div>
+    <h2>El inspector<br>eres <b>tú</b></h2>
+    <p>Una lámpara, un café frío y las pruebas de un crimen sobre la mesa. Examina cada objeto, lee las autopsias, interroga a los sospechosos y cruza las pistas en tu libreta. Cuando lo tengas claro, ve a la máquina de escribir y acusa. Si te equivocas, el culpable quedará libre.</p>
+    <div class="tablet"><img src="img/t-mesa.webp" width="1600" height="1200" alt="El despacho en 3D: escritorio, lámpara, máquina de escribir y fichas de sospechosos"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">Cómo se juega</div>
+    <h2>Investiga. Cruza.<br>Acusa.</h2>
+    <div class="feats">
+      <div class="feat"><div class="n">1</div><h3>Examina pruebas y fichas</h3><p>Un reloj parado a las 23:12, una colilla con carmín, una llave de servicio. Todo está sobre la mesa y todo puede ser una pista.</p></div>
+      <div class="feat"><div class="n">2</div><h3>Cruza las pistas</h3><p>Cuando dos datos encajan, la libreta escribe una deducción. Confronta a los testigos con las pruebas: algunos mienten.</p></div>
+      <div class="feat"><div class="n">3</div><h3>Acusa al culpable</h3><p>Señala al sospechoso y la prueba que lo demuestra. El juez solo te creerá si la prueba es la correcta.</p></div>
+    </div>
+    <div class="shots">
+      <figure class="shot"><img src="img/m-03-ficha.webp" loading="lazy" width="540" height="960" alt=""><figcaption>Interroga a los sospechosos<span>Fichas policiales, coartadas y estaturas.</span></figcaption></figure>
+      <figure class="shot"><img src="img/m-04-prueba.webp" loading="lazy" width="540" height="960" alt=""><figcaption>Examina cada prueba con lupa<span>Un detalle mínimo puede cerrar el caso.</span></figcaption></figure>
+      <figure class="shot"><img src="img/m-05-autopsia.webp" loading="lazy" width="540" height="960" alt=""><figcaption>Autopsias y croquis forenses<span>Lee las heridas como un forense.</span></figcaption></figure>
+      <figure class="shot"><img src="img/m-06-miente.webp" loading="lazy" width="540" height="960" alt=""><figcaption>Los testigos mienten<span>Confronta cada declaración.</span></figcaption></figure>
+      <figure class="shot"><img src="img/m-07-saga.webp" loading="lazy" width="540" height="960" alt=""><figcaption>La saga del Destripador<span>Tres episodios y una rueda de reconocimiento.</span></figcaption></figure>
+      <figure class="shot"><img src="img/m-08-acusar.webp" loading="lazy" width="540" height="960" alt=""><figcaption>¿Quién es el culpable?<span>Acusa con la prueba correcta.</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">Más de 50 sospechosos</div>
+    <h2>Todos tienen algo<br>que <b>esconder</b></h2>
+    <div class="suspects">
+      <img src="img/f-rosa.webp" loading="lazy" alt="Rosa Méndez"><img src="img/f-tomas.webp" loading="lazy" alt="Tomás Ferrer"><img src="img/f-lucia.webp" loading="lazy" alt="Lucía Puig"><img src="img/f-andres.webp" loading="lazy" alt="Andrés Ruiz">
+      <img src="img/f-agusti.webp" loading="lazy" alt="Agustí Ribas"><img src="img/f-remei.webp" loading="lazy" alt="Remei Puig"><img src="img/f-txema.webp" loading="lazy" alt="Txema Arrieta"><img src="img/f-sala.webp" loading="lazy" alt="Andreu Sala">
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">13 expedientes · de 1984 a 1995</div>
+    <h2>Los casos</h2>
+    <div class="cases">
+      <article class="case"><div class="no">EXP. 84/117 · BARCELONA, 1984</div><h3>El anticuario de Via Laietana</h3><div class="where">El primer caso. Un despacho cerrado y cuatro sospechosos.</div></article>
+      <article class="case"><div class="no">EXP. 85/063 · BARCELONA, 1985</div><h3>El incendio de la calle Muntaner</h3><div class="where">Inspirado en el crimen de la calle Fuencarral (Madrid, 1888).</div></article>
+      <article class="case"><div class="no">EXP. 86/009 · BILBAO, 1986</div><h3>La llamada del club de ajedrez</h3><div class="where">Inspirado en el caso Wallace (Liverpool, 1931).</div></article>
+      <article class="case"><span class="tag">DIFÍCIL</span><div class="no">EXP. 87/041 · BARCELONA, 1987</div><h3>El baúl de la Estación de Francia</h3><div class="where">Inspirado en los crímenes del baúl de Brighton (1934).</div></article>
+      <article class="case"><span class="tag">DIFÍCIL</span><div class="no">EXP. 88/012 · MADRID, 1988</div><h3>La Dalia de la Casa de Campo</h3><div class="where">Inspirado en el caso de la Dalia Negra (Los Ángeles, 1947).</div></article>
+      <article class="case"><span class="tag">DIFÍCIL</span><div class="no">EXP. 89/077 · OLOT, 1989</div><h3>El hacha de Can Bosch</h3><div class="where">Inspirado en el caso de Lizzie Borden (Fall River, 1892).</div></article>
+      <article class="case"><span class="tag">SAGA 1/3</span><div class="no">EXP. 90/201 · RAVAL, 1990</div><h3>El clavel de la calle Robadors</h3><div class="where">La saga del Destripador del Raval, episodio 1.</div></article>
+      <article class="case"><span class="tag">SAGA 2/3</span><div class="no">EXP. 90/233 · RAVAL, 1990</div><h3>La doble noche del Raval</h3><div class="where">Dos víctimas en una hora. ¿El mismo hombre?</div></article>
+      <article class="case"><span class="tag">SAGA 3/3</span><div class="no">EXP. 90/268 · RAVAL, 1990</div><h3>Desde el infierno</h3><div class="where">El final de la saga del Destripador.</div></article>
+      <article class="case"><span class="tag">MUY DIFÍCIL</span><div class="no">EXP. 88/203 · TERUEL, 1988</div><h3>La sima de la Muela</h3><div class="where">Tres jóvenes no vuelven de la verbena.</div></article>
+      <article class="case"><span class="tag">MUY DIFÍCIL</span><div class="no">EXP. 93/031 · VALLADOLID, 1993</div><h3>Los tres finales de Irene</h3><div class="where">Un homicidio sin cuerpo y una confesión que no encaja.</div></article>
+      <article class="case"><span class="tag">MUY DIFÍCIL</span><div class="no">EXP. 91/118 · OURENSE, 1991</div><h3>El cruce de Arcos</h3><div class="where">Dos chicas, una noche de discoteca y un taxi.</div></article>
+      <article class="case"><span class="tag">MUY DIFÍCIL</span><div class="no">EXP. 95/277 · ANDÚJAR, 1995</div><h3>La montería de Los Cerrajos</h3><div class="where">Una cacería en Sierra Morena con dos muertos.</div></article>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <div class="kicker">Para Android, iPhone y tablet</div>
+    <h2>Esta noche,<br>el caso es <b>tuyo</b></h2>
+    <div class="stores">
+      <span class="store"><small>Muy pronto en</small>Google Play</span>
+      <span class="store ghost"><small>Muy pronto en</small>App Store</span>
+    </div>
+  </div>
+</section>
 </main>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 Expediente Nocturno · Un juego para mayores de 18 años</div>
+    <nav><a href="privacidad.html">Política de privacidad</a><a href="mailto:expedientenocturnogame@gmail.com">Contacto</a></nav>
+  </div>
+</footer>
 </body>
 </html>
